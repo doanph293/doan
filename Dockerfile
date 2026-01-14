@@ -1,16 +1,18 @@
-# Stage 1: Build
-FROM gradle:8.5-jdk17 AS build
+# Bước 1: Build project bằng Gradle với JDK 21
+FROM gradle:8.5-jdk21 AS build
 WORKDIR /app
 COPY . .
 
-# Lệnh này cực kỳ quan trọng để sửa lỗi "Permission denied" trên Linux
+# Cấp quyền thực thi cho gradlew
 RUN chmod +x gradlew
 
+# Chạy lệnh build
 RUN ./gradlew bootJar --no-daemon
 
-# Stage 2: Run
-FROM eclipse-temurin:17-jre-alpine
+# Bước 2: Chạy ứng dụng với Java 21 Runtime
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
+# Copy file jar từ bước build
 COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
