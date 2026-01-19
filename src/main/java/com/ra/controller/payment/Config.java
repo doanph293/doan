@@ -17,10 +17,10 @@ import java.util.*;
 public class Config {
 
     public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    public static String vnp_ReturnUrl = "https://doantotnghiep-9f0a2a29a89b.herokuapp.com/user/payment-callback";
-    public static String vnp_TmnCode = "B9TWODBN";
-    public static String secretKey = "6WDUBI2QVK15OYHWHC93U2PYMDX6U14H";
-    public static String vnp_ApiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
+    public static String vnp_ReturnUrl = "https://doan-3-zp39.onrender.com/user/payment-callback";
+    public static String vnp_TmnCode = "JOZVTIA6";
+    public static String secretKey = "IX1MNS90UDQN57FCAUU2TRJEXJWHPCBB";
+    public static String vnp_ApiUrl = "https://sandbox.vnpayment.vn/merchantv2/";
 
     public static String md5(String message) {
         String digest = null;
